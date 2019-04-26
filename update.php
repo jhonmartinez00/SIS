@@ -1,6 +1,5 @@
 <?php  
 	include_once 'database.php';
-	session_start();
 
 	$sql = "SELECT * FROM student;";
 	$statement = $conn->prepare($sql);
@@ -39,10 +38,10 @@
 					</tr>
 					<?php
 						foreach($data as $student):
-							$student->s_id = $_SESSION['s_id'];
 					?>
 					<tr>
-						<td><a href="updateUser.php"><button class="btn btn-secondary" name="update" value="<?= $student->s_id; ?>">Update</button></a></td>
+						<td><a href="updateUser.php?id=<?= $student->s_id?>"><button class="btn btn-secondary" name="update" value="<?= $student->s_id; ?>">UPDATE</button></a></td>
+				
 						<td><?= $student->s_fname; ?></td>
 						<td><?= $student->s_lname; ?></td>
 						<td><?= $student->s_date; ?></td>

@@ -4,6 +4,7 @@
 	$statement = $conn->prepare($sql);
 	$statement->execute();
 	$data = $statement->fetchAll(PDO::FETCH_OBJ);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +23,7 @@
 	<a href="delete.php"><button class="btn btn-danger">Delete</button></a>
 	</div>
 	<br>
-	<h1>Update Student Records</h1>
+	<h1>Delete Student Records</h1>
 	<br>
 	<div class="card mt-5">
 		<div class="card-header">
@@ -39,7 +40,7 @@
 						foreach($data as $student):
 					?>
 					<tr>
-						<td><input type="submit" name="delete" class="btn btn-danger" value="Delete"></td>
+						<td><a onclick="return confirm('Delete this student?')" href="deleteStudent.php?id=<?= $student->s_id; ?>"><input type="submit" name="del" class="btn btn-danger" value="DELETE"></a></td>
 						<td><?= $student->s_fname; ?></td>
 						<td><?= $student->s_lname; ?></td>
 						<td><?= $student->s_date; ?></td>

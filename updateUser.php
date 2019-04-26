@@ -1,13 +1,21 @@
 <?php  
 	include_once 'database.php';
-	session_start();
-	echo $_SESSION['s_id'];
-
-	$sql = "SELECT * FROM student;";
+	$id = $_GET['id'];
+	$sql = "SELECT * FROM student WHERE s_id = $id;";
 	$statement = $conn->prepare($sql);
 	$statement->execute();
 	$data = $statement->fetchAll(PDO::FETCH_OBJ);
+	
 
+	if(isset($_POST['update'])){
+			$fname = $_POST['fname'];	
+	$lname = $_POST['lname'];	
+	$bday = $_POST['bday'];
+		$updateQuery = "UPDATE student SET s_fname=:fname,s_lname=:lname,s_date=:bday WHERE s_id = $id;";
+	$updateStatement = $conn->prepare($updateQuery);
+	$updateStatement->execute([':fname'=>$fname,':lname'=>$lname,':bday'=>$bday]);
+	header("Location: read.php?edit=success");
+	}
 foreach($data as $student):
 endforeach;
 ?>
@@ -28,19 +36,19 @@ endforeach;
 	<a href="delete.php"><button class="btn btn-danger">Delete</button></a>
 	</div>
 	<br>
-	<h1>Create New Student</h1>
+	<h1>Update Student Record</h1>
 	<br>
-	<form action="createStudent.php" method="POST"  enctype="multipart/form-data">
+	<form action="" method="POST"  enctype="multipart/form-data">
 	<div class="form-group">
 		<input  class="form-control" type="text" name="fname" value="<?= $student->s_fname; ?>">
 	</div>
 	<div class="form-group">
-		<input class="form-control"  type="text" name="lname" placeholder="Enter Last Name">
+		<input class="form-control"  type="text" name="lname" value="<?= $student->s_lname; ?>">
 	</div>
 	<div class="form-group">
-		<input class="form-control" type="date" name="bday">
+		<input class="form-control" type="date" name="bday" value="<?= $student->s_date; ?>">
 	</div>
-	<input class="btn btn-success" id="createBtn" type="submit" name="add" value="Create">
+	<input class="btn btn-success" id="createBtn" type="submit" name="update" value="Update">
 	</form>
 </div>
 </body>
