@@ -1,5 +1,6 @@
 <?php  
 	include_once 'database.php';
+	session_start();
 	$sql = "SELECT * FROM student;";
 	$statement = $conn->prepare($sql);
 	$statement->execute();
@@ -11,16 +12,23 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="stylesheet" type="text/css" href="bootstrap.css">
-	<title>Create</title>
+	<title>Student Information System</title>
 </head>
 <body>
 <div class="container">
 	<h1 class="title">Student Information System</h1>
 	<div class="container1">
-	<a href="create.php"><button class="btn btn-success">Create</button></a>
-	<a href="read.php"><button class="btn btn-primary">Read</button></a>
-	<a href="update.php"><button class="btn btn-secondary">Update</button></a>
-	<a href="delete.php"><button class="btn btn-danger">Delete</button></a>
+<?php
+
+		if($_SESSION['u_role']=='Admin'){
+		echo '<a href="create.php"><button class="btn btn-success">Create</button></a>';
+		echo '<a href="read.php"><button class="btn btn-primary">Read</button></a>';
+		echo '<a href="update.php"><button class="btn btn-secondary">Update</button></a>';
+		echo '<a href="delete.php"><button class="btn btn-danger">Delete</button></a>';
+	}else{
+		header("Location: read.php");
+	}
+	?>
 	</div>
 	<br>
 	<h1>Delete Student Records</h1>

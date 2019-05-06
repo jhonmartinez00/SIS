@@ -24,7 +24,7 @@ endforeach;
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="stylesheet" type="text/css" href="bootstrap.css">
-	<title>Create</title>
+	<title>Student Information System</title>
 </head>
 <body>
 <div class="container">

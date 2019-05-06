@@ -15,3 +15,18 @@ button {
 #createBtn {
 	float: right;
 }
+.login {
+	margin: 50px auto;
+	border: 1px solid grey;
+	width: 500px;
+	padding: 50px;
+	border-radius: 20px;
+	text-align: right;
+}
+#loginBtn {
+
+	margin-top: 20px;
+}
+.register {
+	float: left;
+}

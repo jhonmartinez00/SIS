@@ -1,3 +1,6 @@
+<?php 
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,12 +11,18 @@
 <body>
 <div class="container">
 	<h1 class="title">Student Information System</h1>
-	<div class="container1">
-	<a href="create.php"><button class="btn btn-success">Create</button></a>
-	<a href="read.php"><button class="btn btn-primary">Read</button></a>
-	<a href="update.php"><button class="btn btn-secondary">Update</button></a>
-	<a href="delete.php"><button class="btn btn-danger">Delete</button></a>
+	<form action="login.php" method="post">
+	<div class="login">
+		<div class="form-group">
+			<input type="text" name="username" placeholder="Enter Username" class="form-control">
+		</div>
+		<div class="form-group">
+			<input type="password" name="password" placeholder="Enter Password" class="form-control">
+		</div>
+		<input type="submit" name="login" class="btn btn-success" value="Login" id="loginBtn">
+		<a class="register" href="register.php">Create a new Account?</a>
 	</div>
+	</form>
 </div>
 </body>
 </html>
