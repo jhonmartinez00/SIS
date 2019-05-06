@@ -39,6 +39,7 @@
 			<input type="password" name="password" placeholder="Enter password" class="form-control">
 		</div>
 		<input type="submit" name="login" class="btn btn-success" value="Login">
+		<a href="register.php" class="register">Create New Account?</a>
 	</div>
 	</form>
 </div>
