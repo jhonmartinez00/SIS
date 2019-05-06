@@ -6,7 +6,7 @@
 	try {
 		$conn = new PDO($dsn,$username,$password);
 	}catch(PDOException $e){
-		echo 'Connection Errors';
+		echo 'Connection Error';
 	}
 
 ?>
