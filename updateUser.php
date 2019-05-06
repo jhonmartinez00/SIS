@@ -1,5 +1,7 @@
 <?php  
 	include_once 'database.php';
+
+session_start();
 	$id = $_GET['id'];
 	$sql = "SELECT * FROM student WHERE s_id = $id;";
 	$statement = $conn->prepare($sql);
@@ -18,22 +20,30 @@
 	}
 foreach($data as $student):
 endforeach;
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="stylesheet" type="text/css" href="bootstrap.css">
-	<title>Student Information System</title>
+	<title>Create</title>
 </head>
 <body>
 <div class="container">
 	<h1 class="title">Student Information System</h1>
 	<div class="container1">
+		<?php  
+			if($_SESSION['role']=='Admin'){
+				echo '
 	<a href="create.php"><button class="btn btn-success">Create</button></a>
 	<a href="read.php"><button class="btn btn-primary">Read</button></a>
 	<a href="update.php"><button class="btn btn-secondary">Update</button></a>
-	<a href="delete.php"><button class="btn btn-danger">Delete</button></a>
+	<a href="delete.php"><button class="btn btn-danger">Delete</button></a>';
+			}else{
+				header("Location: read.php");
+			}
+		?>
 	</div>
 	<br>
 	<h1>Update Student Record</h1>

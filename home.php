@@ -1,5 +1,10 @@
 <?php 
-	session_start();
+include_once 'database.php';
+session_start();
+if(isset($_POST['logout'])){
+	session_destroy();
+	header("Location: index.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,21 +16,8 @@
 <body>
 <div class="container">
 	<h1 class="title">Student Information System</h1>
+	<form action="" method="post">
+		<input type="submit" name="logout" class="btn btn-danger logout" value="Logout">
+	</form>
 	<div class="container1">
-	<?php 
-		if($_SESSION['u_role']=='Admin'){
-		echo '<a href="create.php"><button class="btn btn-success">Create</button></a>';
-		echo '<a href="read.php"><button class="btn btn-primary">Read</button></a>';
-		echo '<a href="update.php"><button class="btn btn-secondary">Update</button></a>';
-		echo '<a href="delete.php"><button class="btn btn-danger">Delete</button></a>';
-	}else{
-		header("Location: read.php");
-	}
-	?>
-	
-	
-	
 	</div>
-</div>
-</body>
-</html>

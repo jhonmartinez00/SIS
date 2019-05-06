@@ -8,4 +8,16 @@
 	}catch(PDOException $e){
 		echo 'Connection Error';
 	}
+	// $serverName = 'localhost';
+	// $userName = 'root';
+	// $password = '';
+	// $dbName = 'sis';
+
+	// $conn = mysqli_connect($serverName,$userName,$password,$dbName);
+
+	// if(mysqli_connect_errno()){
+	// echo 'Connection Error';
+	// }else{
+	// }
+
 ?>

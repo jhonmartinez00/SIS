@@ -8,7 +8,7 @@ $bday = $_POST['bday'];
 		$sql = "INSERT INTO student (s_fname,s_lname,s_date) VALUES (:fname,:lname,:bday);";
 		$statement = $conn -> prepare($sql);
 		$statement -> execute([':fname'=>$fname,':lname'=>$lname,':bday'=>$bday]);
-		header("Location: read.php?create=success");
+		header("Location: create.php?success");
 
 }else{
 		header("Location: index.php?error");
