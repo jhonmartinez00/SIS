@@ -1,23 +1,12 @@
 <?php  
-	$dsn = 'mysql:host=localhost;dbname=sis';
-	$username = 'root';
-	$password = '';
+	$dsn = 'mysql:host=db4free.net;dbname=samplesis123';
+	$username = 'hamsaburou123';
+	$password = 'qwerty123';
 
 	try {
 		$conn = new PDO($dsn,$username,$password);
 	}catch(PDOException $e){
 		echo 'Connection Error';
 	}
-	// $serverName = 'localhost';
-	// $userName = 'root';
-	// $password = '';
-	// $dbName = 'sis';
-
-	// $conn = mysqli_connect($serverName,$userName,$password,$dbName);
-
-	// if(mysqli_connect_errno()){
-	// echo 'Connection Error';
-	// }else{
-	// }
 
 ?>
