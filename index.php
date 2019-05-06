@@ -1,6 +1,12 @@
 <?php 
+
 	include_once 'database.php';
 	session_start();
+
+	if(isset($_SESSION['id'])){
+		header("Location: read.php");
+	}
+
 	if(isset($_POST['login'])){
 
 	$username = $_POST['username'];	
